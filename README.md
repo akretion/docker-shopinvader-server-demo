@@ -1,11 +1,12 @@
-# Shopinvader Container for demo purpose
+# Shopinvader Image for demos
 
-This project will build a container available on quay.io here : https://quay.io/repository/akretion/shopinvader-demo
+This project builds an image ready to use for shopinvader demos.
 
-This container include a preconfigured database with a admin user already existing
+You can download the prepared image here : https://quay.io/repository/akretion/locomotive-shopinvader-demo
 
-- user: demo@shopinvader.com
-
-- password: akretion
-
+The image contains: 
+- the default template 
+- a preconfigured admin user
+* user: demo@shopinvader.com
+* password: akretion
 
