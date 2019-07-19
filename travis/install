@@ -16,7 +16,7 @@ echo 'Download last template version'
 git clone -b master https://github.com/shopinvader/shopinvader-template template
 
 echo 'Deploy site using wagon'
-docky run -- bundle exec wagon deploy test -d -v
+docky run -- bundle exec wagon deploy test -d -v -f
 
 echo 'Backup mongo database'
 cd ../locomotive
