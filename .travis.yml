@@ -7,7 +7,7 @@ env:
     - LOCO_VERSION=v4.0.x-20190829 WAGON_VERSION=v4.0.x-20190802
 
 before_install:
-  - sudo pip install docky
+  - sudo pip install docker-compose
   - ./travis/install
 
 script:

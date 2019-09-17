@@ -1,12 +1,13 @@
 networks:
-  default:
-    external:
-      name: dy
+  shopinvader:
+    driver: bridge
 services:
   db:
     image: mongo:3
     volumes:
       - .db:/data/db
+    networks:
+      - shopinvader
   locomotive:
     ports:
       - 3000:3000
@@ -30,4 +31,6 @@ services:
       - ./public/sites:/usr/src/app/public/sites
       - ./public/uploaded_assets:/usr/src/app/public/uploaded_assets
       - ./Rakefile:/usr/src/app/Rakefile
+    networks:
+      - shopinvader
 version: '3'
