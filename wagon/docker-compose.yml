@@ -1,7 +1,7 @@
 networks:
   default:
     external:
-      name: dy
+      name: shopinvader
 services:
   wagon:
     image: quay.io/akretion/shopinvader-wagon:$WAGON_VERSION
