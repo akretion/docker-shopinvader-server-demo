@@ -2,7 +2,7 @@
 set -e
 
 echo 'Deploy the image on quay.io if needed'
-IMAGE=quay.io/akretion/locomotive-shopinvader-demo
+IMAGE=quay.io/shopinvader/locomotive-shopinvader-demo
 
 if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   echo "Log to quay.io"
