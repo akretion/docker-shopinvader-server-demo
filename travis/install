@@ -7,7 +7,7 @@ docker network create shopinvader
 echo 'Setup locomotive'
 cd locomotive
 echo 'Launch script to create the default admin user'
-docker-compose run --service-port locomotive rake demo:setup
+docker-compose run --service-port locomotive gosu loco rake demo:setup
 
 echo 'Run locomotive in background'
 docker-compose up -d
@@ -19,12 +19,12 @@ echo 'Download last template version'
 git clone -b master https://github.com/shopinvader/shopinvader-template template
 
 echo 'Deploy site using wagon'
-docker-compose run wagon -- bundle exec wagon deploy test -d -v -f
+docker-compose run wagon -- gosu ubuntu bundle exec wagon deploy test -d -v -f
 
 echo 'Backup mongo database'
 cd ../locomotive
 docker-compose down
-docker-compose run locomotive -- mongodump -h db --db shopinvader -o data
+docker-compose run locomotive -- gosu loco mongodump -h db --db shopinvader -o data
 
 echo 'Move data to demo image'
 mv data/* ../demo/data/
