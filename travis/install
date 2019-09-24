@@ -13,10 +13,11 @@ echo 'Setup Wagon'
 cd ../wagon
 
 echo 'Download last template version'
-git clone -b master https://github.com/shopinvader/shopinvader-template template
+git clone -b webpack-integration https://github.com/shopinvader/shopinvader-template template
 
 echo 'Deploy site using wagon'
-docker-compose run wagon -- gosu ubuntu bundle exec wagon deploy test -d -v -f
+echo 'domains: [localhost]' >> template/config/site.yml
+echo 'yes' | docker-compose run wagon -- gosu ubuntu bundle exec wagon deploy test -d -v
 
 echo 'Backup mongo database'
 cd ../locomotive
