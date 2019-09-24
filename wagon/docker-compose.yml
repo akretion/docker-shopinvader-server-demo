@@ -4,7 +4,7 @@ networks:
       name: shopinvader
 services:
   wagon:
-    image: quay.io/akretion/shopinvader-wagon:$WAGON_VERSION
+    image: quay.io/shopinvader/wagon:$WAGON_VERSION
     volumes:
       - ./template:/workspace
 version: '3'

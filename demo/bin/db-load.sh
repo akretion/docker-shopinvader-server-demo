@@ -11,4 +11,8 @@ else
   echo "Demo database loaded"
 fi
 
+echo "Fix access right on public"
+USER_ID=$(stat -c %u /usr/src/app/log)
+chown -R $USER_ID:$USER_ID /usr/src/app/public
+
 /usr/src/bin/docker-entrypoint.sh "$@"

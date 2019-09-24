@@ -1,5 +1,5 @@
 ARG version
-FROM quay.io/akretion/locomotive-shopinvader:${version}
+FROM quay.io/shopinvader/locomotivecms:${version}
 
 RUN DEBIAN_FRONTEND=noninteractive \
     && apt-get update \

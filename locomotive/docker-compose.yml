@@ -1,18 +1,20 @@
 networks:
-  default:
-    external:
-      name: shopinvader
+  shopinvader:
+    driver: bridge
+    name: shopinvader
 services:
   db:
+    networks:
+      - shopinvader
     image: mongo:3
     volumes:
       - .db:/data/db
   locomotive:
+    networks:
+      - shopinvader
     ports:
       - 3000:3000
     environment:
-      - VIRTUAL_HOST=shopinvader-server.dy
-      - VIRTUAL_PORT=3000
       - RAILS_ENV=development
       - STORE_ASSET_IN_S3=false
       - DRAGON_FLY_SECRET=thisISaDEMOkeyNOTsecret
@@ -30,4 +32,4 @@ services:
       - ./public/sites:/usr/src/app/public/sites
       - ./public/uploaded_assets:/usr/src/app/public/uploaded_assets
       - ./Rakefile:/usr/src/app/Rakefile
-version: '3'
+version: '3.5'

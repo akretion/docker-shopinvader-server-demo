@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-echo 'Setup shopinvader netword'
-docker network create shopinvader
-
 echo 'Setup locomotive'
 cd locomotive
 echo 'Launch script to create the default admin user'
