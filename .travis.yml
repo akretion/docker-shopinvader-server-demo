@@ -4,7 +4,7 @@ services: docker
 
 env:
   matrix:
-    - LOCO_VERSION=v4.0.x-20190928 WAGON_VERSION=v4.0.x-20190928
+    - LOCO_VERSION=v4.0.x-20190929 WAGON_VERSION=v4.0.x-20190929
 
 before_install:
   - sudo pip install docker-compose
