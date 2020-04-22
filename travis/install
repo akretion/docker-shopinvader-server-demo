@@ -17,7 +17,7 @@ rm -rf template
 git clone -b master https://github.com/shopinvader/shopinvader-template template
 
 echo 'Deploy site using wagon'
-echo 'domains: [website-1.localhost]' >> template/config/site.yml
+echo 'domains: [my-website-1.localhost]' >> template/config/site.yml
 echo 'yes' | docker-compose run wagon -- gosu ubuntu bundle exec wagon deploy test -d -v
 
 echo 'Backup mongo database'
