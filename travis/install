@@ -16,7 +16,6 @@ echo 'Download last template version'
 git clone -b master https://github.com/shopinvader/shopinvader-template template
 
 echo 'Deploy site using wagon'
-echo 'domains: [my-website-1.localhost]' >> template/config/site.yml
 sed -i 's/locomotive.localhost/locomotive:3000/g' template/config/deploy.yml
 echo 'yes' | docker-compose run wagon -- gosu ubuntu bundle exec wagon deploy test -d -v
 
