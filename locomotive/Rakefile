@@ -14,7 +14,7 @@ namespace :demo do
     account.save!
 
     puts 'Create demo Site'
-    site = Locomotive::Site.create! name: "Shopinvader", handle: "shopinvader", domains: ["localhost"], locales: [:en, :fr]
+    site = Locomotive::Site.create! name: "My Website 1", handle: "my-website-1", domains: ["localhost"], locales: [:en, :fr]
     site.memberships.build account: account, role: 'admin'
     site.save!
   end

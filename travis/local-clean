@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "kill all container"
+docker kill $(docker ps -q)
+
+echo "remove file"
+sudo rm -rf locomotive/.db
+sudo rm -rf wagon/template
+sudo rm -rf demo/public/*
+sudo rm -rf demo/data/*

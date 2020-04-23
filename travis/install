@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -ex
 
 echo 'Setup locomotive'
 cd locomotive
@@ -16,14 +16,16 @@ echo 'Download last template version'
 git clone -b master https://github.com/shopinvader/shopinvader-template template
 
 echo 'Deploy site using wagon'
-echo 'domains: [localhost]' >> template/config/site.yml
+echo 'domains: [my-website-1.localhost]' >> template/config/site.yml
+sed -i 's/locomotive.localhost/locomotive:3000/g' template/config/deploy.yml
 echo 'yes' | docker-compose run wagon -- gosu ubuntu bundle exec wagon deploy test -d -v
 
 echo 'Backup mongo database'
 cd ../locomotive
 docker-compose down
+chmod 777 data
 docker-compose run locomotive -- gosu loco mongodump -h db --db shopinvader -o data
 
 echo 'Move data to demo image'
-mv data/* ../demo/data/
-mv public/* ../demo/public/
+cp -r data/* ../demo/data/
+cp -r public/* ../demo/public/

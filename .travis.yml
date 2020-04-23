@@ -1,13 +1,16 @@
 sudo: required
 
 services: docker
+language: python
+python:
+  - "3.6"
 
 env:
   matrix:
-    - LOCO_VERSION=v4.0.x-20190929 WAGON_VERSION=v4.0.x-20190929
+    - LOCO_VERSION=v4.0.x-20200331 WAGON_VERSION=v4.0.x-20200331
 
 before_install:
-  - sudo pip install docker-compose
+  - pip install docker-compose
   - ./travis/install
 
 script:
