@@ -17,6 +17,12 @@ git clone -b master https://github.com/shopinvader/shopinvader-template template
 
 echo 'Deploy site using wagon'
 sed -i 's/locomotive.localhost/locomotive:3000/g' template/config/deploy.yml
+echo 'Install dependency with yarn'
+cd template
+yarn install
+echo 'Build asset'
+yarn build:prod
+cd ..
 echo 'yes' | docker-compose run wagon -- gosu ubuntu bundle exec wagon deploy test -d -v
 
 echo 'Backup mongo database'

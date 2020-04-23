@@ -7,7 +7,7 @@ python:
 
 env:
   matrix:
-    - LOCO_VERSION=v4.0.x-20200331 WAGON_VERSION=v4.0.x-20200331
+    - LOCO_VERSION=v4.0.x-20200331 WAGON_VERSION=v4.0.x-20200423
 
 before_install:
   - pip install docker-compose
